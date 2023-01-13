@@ -3,7 +3,7 @@ package com.lucasvaudey.fizzbuzz.domain.models
 import com.lucasvaudey.fizzbuzz.data.entities.FbEntry
 
 /**
- * Fake Fizz Buzz model to show the difference beetween models and entities
+ * Fake Fizz Buzz Param model to show the difference beetween models and entities
  */
 data class FbParam(
     val number1: Int,

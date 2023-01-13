@@ -6,11 +6,16 @@ plugins {
     id "com.google.dagger.hilt.android"
 }
 
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
 
 android {
     namespace 'com.lucasvaudey.fizzbuzz'
     compileSdk 33
-
     defaultConfig {
         applicationId "com.lucasvaudey.fizzbuzz"
         minSdk 21
@@ -23,10 +28,24 @@ android {
             useSupportLibrary true
         }
     }
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(getRootDir().getAbsolutePath() + "/keystore.jks")
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+
 
     buildTypes {
-        release {
+        debug {
             minifyEnabled false
+            debuggable true
+        }
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

@@ -1,4 +1,4 @@
-package com.lucasvaudey.fizzbuzz.ui.theme
+package com.lucasvaudey.fizzbuzz.presentation.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

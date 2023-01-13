@@ -1,6 +1,5 @@
 package com.lucasvaudey.fizzbuzz.domain.repository
 
-import com.lucasvaudey.fizzbuzz.data.entities.FbEntry
 import com.lucasvaudey.fizzbuzz.domain.models.FbParam
 
 abstract class FbRepository {

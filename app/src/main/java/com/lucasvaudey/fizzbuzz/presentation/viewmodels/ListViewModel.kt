@@ -20,7 +20,7 @@ class ListViewModel @Inject constructor(
     val isLoading = mutableStateOf(true)
     val isLoadingMore = mutableStateOf(false)
     val fizzBuzzList = mutableStateListOf<String>()
-    var lastIndex = 1
+    private var lastIndex = 1
     private val batchLimit = 100
 
 
